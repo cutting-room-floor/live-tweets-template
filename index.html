@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Twitter Showdown</title>
+    <link rel="stylesheet" href="fonts/fonts.css" type="text/css" />
+    <link rel="stylesheet" href="css/map.css" type="text/css" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+
+	<div id="header">
+        <h1>Twitter Showdown</h1>
+    </div>
+    <div id="content">
+        <img src="img/illustration.png" alt="Work vs. Play">
+        <table id="counter">
+        	<tr>
+        		<th class='work'>Work Tweets</th>
+        		<th class='play'>Play Tweets</th>
+        	</tr>
+           	<tr>
+           	    <td class='work'>--</td>
+        		<td class='play'>--</td>
+        	</tr>
+        </table>
+        <div id="about">
+            <h2>About this Site</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.</p>
+            <a href="#" id="stop">Pause</a>
+        </div>
+    </div>
+
+    <div id="map" class="map"></div>
+        
+    <!-- External libraries and site script -->
+    <script src="ext/jquery.min.js"></script>
+    <script src="ext/underscore.min.js"></script>
+    <script src="ext/modestmaps.min.js"></script>
+    <script src="ext/wax/wax.mm.js"></script>
+    <script src="ext/wax/wax.ext.js"></script>
+    <script src="ext/easey.js"></script>
+    <script src="ext/mmg.js"></script>
+    <script src="tweetRace.js"></script>
+    <script src="script.js"></script>
+    
+    <!-- Site configuration -->
+    <script type="text/javascript">
+    
+        // Make a new map in #map
+        var main = Map('map', {
+            id: 'saman.map-nhdefjow',
+            center: {
+                lat: 40,
+                lon: -80,
+                zoom: 4
+            },
+            zoomRange: [2, 15],
+            features: [
+                'zoomwheel',
+                'tooltips',
+                'zoombox',
+                'zoompan',
+                'legend',
+                'share'
+            ]
+        });
+    </script>
+</body>
+</html>

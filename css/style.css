@@ -1,0 +1,345 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+    }
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+    }
+body {
+	line-height: 1;
+    }
+ol, ul {
+	list-style: none;
+    }
+blockquote, q {
+	quotes: none;
+    }
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+    }
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+    }
+
+/* Typography */
+
+body,
+input,
+textarea {
+    font: 16px/24px 'DroidSerifRegular', sans-serif;
+    color: #333;
+    -webkit-font-smoothing: antialiased;
+    }
+
+pre,
+code { font:normal 12px/20px monospace; }
+    
+h1, h2 {
+    font: .75em/1em 'DroidSansBold', sans-serif;
+    text-transform: uppercase;
+    }
+
+a {
+    color:#369;
+    text-decoration:none;
+    }
+
+/* Layout */
+
+h1,h2 {
+    padding: 20px 0;
+    text-align: center;
+    }
+
+p {
+    margin-bottom: 20px;
+    }
+
+body > div {
+    position: relative;
+    z-index: 1;
+    }
+    
+.map {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+    }
+
+#header {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 320px;
+    height: 50px;	
+    background: #444;
+    color: white;
+    }
+
+#content {
+	position: absolute;
+	top: 50px;
+	right: 0px;
+	bottom: 0px;
+	padding: 0 20px;
+	width: 279px;
+    background: rgb(255,255,255); /* old IE */
+    background: rgba(255,255,255,.9);
+    border-left: 1px solid #ccc;
+    overflow-x: auto;
+    z-index: 2;
+    }
+
+#content img {
+	display: block;
+    margin: 0px auto;
+    padding: 20px 0;
+    width: 100%;
+    max-width: 280px;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+    }
+
+#counter {
+    margin: 20px auto;
+    width: 100%;
+    border: 1px solid #ccc;
+    }
+
+th {
+    padding: 10px 0;
+    width: 50%;
+    font: .75em/1em 'DroidSansBold', sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+	border-bottom: 1px solid #ccc;
+    }
+
+th.work, td.work {
+	border-right: 1px solid #ccc;
+    }
+    
+td { 
+    font: 4em/1em 'DroidSerifBold', Georgia, serif;
+    text-align: center;
+    padding: 20px 0;
+    }
+
+td.work { color: #d97e51;}
+td.play { color: #5dbfe1;}
+
+#about {
+    border-top: 1px solid #ccc;
+    }
+
+/* Map */   
+
+a.zoomer {
+	position: absolute;
+    top: 10px;
+    }
+    
+.wax-tooltip {
+    left: auto;
+    top: 10px;
+    right: 10px;
+    }
+.wax-legends {
+    left: auto;
+    right: 10px;
+    width: 290px;
+    }
+.wax-share h3 {
+    margin: 0px 0px 10px;
+    font-size: 16px;
+    font-weight: normal;
+    }
+.wax-share strong {
+    font-weight: 700;
+    }
+.wax-share small {
+    font-size: 11px;
+    color: #999;
+    display: block;
+    margin-top: 0.5em;
+    }
+.share {
+    top: 45px;
+    z-index: 1000;
+    }
+    
+.mmg-default {
+    width: 20px;
+    height: 40px;
+    background: url(../img/map.png) -120px -30px;
+    left: -10px;
+    top: -30px;
+    }
+.mmg {
+    width: 15px;
+    height: 15px;
+    left: -7.5px;
+    top: -7.5px;
+    background: url(../img/work.png) no-repeat left bottom;
+    z-index: 3;
+    position: relative;
+    }
+.mmg-play {
+    background: url(../img/play.png) no-repeat left bottom; 
+    }
+
+.mmg .overlay {
+    width: 190px;
+    font-size: 12px;
+    line-height: 18px;
+    padding: 10px;
+    border-radius: 3px;
+    color: white;
+    position: absolute;
+    bottom: 25px;
+    left: -97.5px;
+    visibility: hidden;
+    opacity: 0;
+    padding-bottom: 30px;
+    border: none;
+    z-index: 2;
+    }
+.mmg .overlay, .mmg .arrow-down {
+    -moz-transition: opacity .1s; 
+    -webkit-transition: opacity .1s;  
+    -ms-transition: opacity .1s;  
+    -o-transition: opacity .1s;  
+    transition: opacity .1s;  
+    }
+.mmg .user, .mmg .time {
+    color: #333;
+    position: absolute;
+    margin-top: 5px;
+    font-size: 11px;
+    }
+.mmg .user {
+    left: 10px;    
+    }
+.mmg .time {
+    right: 10px;
+    }
+.mmg:hover .overlay, .mmg:hover .arrow-down {
+    visibility: visible;
+    opacity: 1;
+    }
+.mmg:hover {
+    z-index: 10;
+    }
+.mmg .arrow-down {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    position: absolute;
+    bottom: 20px;
+    left: 2.5px;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1;
+    }
+.mmg-work .arrow-down { border-top: 5px solid #d97e51; }
+.mmg-work .overlay { background: #d97e51; }
+.mmg-play .arrow-down { border-top: 5px solid #5dbfe1; }
+.mmg-play .overlay { background: #5dbfe1; }
+
+/* embed */
+
+.embed .map {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: white;
+    z-index: 1000;
+    }
+.embed #header, .embed #content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10001;
+    visibility: hidden;
+    overflow: hidden;
+    }
+.embed a.zoomer {
+    top: 10px;
+    }
+.embed .wax-tooltip {
+    top: 10px;
+    right: 10px;
+    }
+.embed .wax-legends {
+    right: 10px;
+    }
+.embed .share {
+    top: 45px;
+    }
+.embed .layers {
+    position: absolute	;
+    top: 90px;
+    left: 0;
+    z-index: 1001;
+    visibility: visible;
+    }
+.embed .layer {
+    width: 100px;
+    text-align: center;
+    border: 1px solid #ccc;
+    }
+.embed.sharing .layers {
+    visibility: hidden;
+    }
+
+/* Animation */
+
+.map-tile-loaded {
+    -webkit-animation-name:               fade-in;
+    -moz-animation-name:                  fade-in;
+    -ms-animation-name:                   fade-in;
+    -o-animation-name:                    fade-in;
+    -webkit-animation-timing-function:    linear;
+    -moz-animation-timing-function:       linear;
+    -ms-animation-timing-function:        linear;
+    -o-animation-timing-function:         linear;
+    -webkit-animation-duration:           .2s;
+    -moz-animation-duration:              .2s;
+    -ms-animation-duration:               .2s;
+    -o-animation-duration:                .2s;
+}
+
+@-webkit-keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+@-moz-keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+@-ms-keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+@-o-keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
