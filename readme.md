@@ -1,6 +1,6 @@
 # Map Site Templates
 
-[Map Site templates] from MapBox are a way to jumpstart building a map-based web feature. The map-site templates bundles common html and css formatting with reusable javascript components. 
+[Map Site templates](http://mapbox.com/map-sites) from MapBox are a way to jumpstart building a map-based web feature. The map-site templates bundles common html and css formatting with reusable javascript components. 
 
 This template demonstrates layering live data from an API feed (in this case Twitter) on a custom map from MapBox. It's designed to make it easy to get started and should be hacked up at will for your project.
 
