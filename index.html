@@ -14,15 +14,15 @@
         <h1>Twitter Showdown</h1>
     </div>
     <div id="content">
-        <img src="img/illustration.png" alt="Work vs. Play">
+        <img id="logo" src="img/illustration.png" alt="Work vs. Play">
         <table id="counter">
         	<tr>
-        		<th class='work'>Work Tweets</th>
-        		<th class='play'>Play Tweets</th>
+        		<th class='first'>First Tweets</th>
+        		<th class='second'>Second Tweets</th>
         	</tr>
            	<tr>
-           	    <td class='work'>--</td>
-        		<td class='play'>--</td>
+           	    <td class='first'>--</td>
+        		<td class='second'>--</td>
         	</tr>
         </table>
         <div id="about">
@@ -48,24 +48,31 @@
     <!-- Site configuration -->
     <script type="text/javascript">
     
-        // Make a new map in #map
+        // Specify the tweets and location / radius to search
+        var tweets = [
+            'work',             // First term
+            'play',             // Second term
+            '39,-98,1500mi'     // search location and radius (lat,lon,radius)
+        ];
+
+        // Make a new map in the #map element
         var main = Map('map', {
-            id: 'saman.map-nhdefjow',
+            // Specify the MapBox API url
+            api: 'http://a.tiles.mapbox.com/v3/mapbox.map-hv50mbs9.jsonp',
             center: {
-                lat: 40,
-                lon: -80,
-                zoom: 4
+                lat: 40,        // Intial center point and zoom level.
+                lon: -80,       // To find coordinates and zoom levels, 
+                zoom: 4         // try: http://www.getlatlon.com
             },
-            zoomRange: [2, 15],
-            features: [
+            zoomRange: [2, 15], // Limit zooming on the map to these levels
+            features: [         // Map features (see readme.md)
                 'zoomwheel',
-                'tooltips',
                 'zoombox',
                 'zoompan',
-                'legend',
                 'share'
             ]
-        });
+        }, tweetRace.start);  // Callback function to start when map is loaded
+        
     </script>
 </body>
 </html>

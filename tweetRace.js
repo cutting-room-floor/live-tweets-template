@@ -4,9 +4,11 @@ var tweetRace = {};
 // Array for tweets queue
 tweetRace.tweets = [];
 
-// Start the race
+// Start the race with settings from tweets[]
 tweetRace.start = _.throttle(function(){
-    tweetRace.getTweets('work OR play', '39,-98,1500mi');
+    $('th.first').text(tweets[0] + ' tweets');
+    $('th.second').text(tweets[1] + ' tweets');
+    tweetRace.getTweets(tweets[0] + ' OR ' + tweets[1], tweets[2]);
 }, 2000);
     
 tweetRace.params = {
@@ -60,7 +62,7 @@ tweetRace.processTweet = function(d) {
                 time: formatDate(new Date(element.created_at)),
                 text: element.text,
                 user: '@' + element.from_user,
-                category: (element.text.indexOf('play') >= 0) ? 'play' : 'work'
+                category: (element.text.toLowerCase().indexOf(tweets[0].toLowerCase()) >= 0) ? 'first' : 'second'
             });
         }
     });
@@ -86,18 +88,18 @@ tweetRace.processTweet = function(d) {
 
 // Update counters
 tweetRace.counters = function() {
-    var workers = $('.mmg-work').length,
-        players = $('.mmg-play').length;
+    var first = $('.mmg-first').length,
+        second = $('.mmg-second').length;
     
-    if (workers > 0) {
-        $('td.work').text(workers);
+    if (first > 0) {
+        $('td.first').text(first);
     } else {
-        $('td.work').text('--');
+        $('td.first').text('--');
     }
-    if (players > 0) {
-        $('td.play').text(players);
+    if (second > 0) {
+        $('td.second').text(second);
     } else {
-        $('td.play').text('--');  
+        $('td.second').text('--');
     }
 };
 
