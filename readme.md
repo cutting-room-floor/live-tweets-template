@@ -60,7 +60,8 @@ var main = Map('map', {
 
 The map options object can take several options:
 
-- `api` The MapBox API URL
+- `api` The MapBox API URL from the `embed` button on your map:
+  ![](http://mapbox.com/images/hosting/embedding-4.png)
 - `center` An object of `{ lat: ##, lon: ##, zoom: ## }` that defines the map's initial view. If not is provided, the default center set from MapBox will be used
 - `zoomRange` An array of `[##, ##]` where the first element is the minimum zoom level and the second is the max
 - `features` An array of additional features for the map
