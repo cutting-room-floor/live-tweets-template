@@ -128,7 +128,7 @@ body > div {
     }
 
 #counter {
-    margin: 20px auto;
+    margin: 20px auto 0 auto;
     width: 100%;
     border: 1px solid #ccc;
     }
@@ -154,6 +154,26 @@ td {
 
 td.first { color: #d97e51;}
 td.second { color: #5dbfe1;}
+
+#stop {
+	display: block;
+	padding: 10px 0;
+	margin-bottom: 20px;
+	border: 1px solid #ccc;
+	border-top: 0;
+	background: #f2f2f2 url(../img/pause-play.png) 10px 10px no-repeat;
+	font: .75em/1em 'DroidSansBold', Georgia, serif;
+	color: #888;
+	text-indent: 30px;
+	text-transform: uppercase;
+	}
+	#stop:hover { background-color: #e3e3e3;}
+
+#stop.start {
+	background-image:url(../img/pause-play.png);
+	background-position: 10px -40px;
+	background-repeat: no-repeat;
+	}
 
 #about {
     border-top: 1px solid #ccc;

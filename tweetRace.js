@@ -168,12 +168,13 @@ tweetRace.map = function() {
 // Pause / play button
 $('#stop').click(function(e){
     e.preventDefault();
+    $(this).toggleClass('start');
     if (tweetRace.stop) {
         $(this).text('Pause');
         tweetRace.stop = false;
         tweetRace.start();
     } else { 
-        $(this).text('Play');
+        $(this).text('Start');
         tweetRace.stop = true;
     }
 });
