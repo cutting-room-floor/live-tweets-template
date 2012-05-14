@@ -118,7 +118,7 @@ The internals of `tweetRace.js` mostly deal with parsing the Twitter API to filt
 
 ## Further Reading
 
-* [MapBox Hosting API](http://mapbox.com/hosting/api/)
+* [MapBox API](http://mapbox.com/hosting/api/)
 * [MapBox Wax](http://mapbox.com/wax/)
 * [MapBox MMG](http://mapbox.com/mmg/)
 * [MapBox Easey](http://mapbox.com/easey/)
