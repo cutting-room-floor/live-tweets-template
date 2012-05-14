@@ -37,7 +37,7 @@ CSS rules are set in two files:
 
 All of the external javascript libraries to make the map interactive and connect it to MapBox are stored in the `ext` directory. For this template, we're using [Modest Maps](http://modestmaps.com/) and [Wax](http://mapbox.com/wax) to make the map interactive, [Easey](https://github.com/mapbox/easey) for smooth aninmated panning and zooming, and [MMG](http://mapbox.com/mmg/) for adding markers to the map based on [geojson](http://www.geojson.org/)-formatted data.
 
-An internal javascript library `script.js` abstracts common map settings to do in an easy, and `tweetRace.js` is the library we put together to take two terms compare their results in Twitter searches.
+An internal javascript library, `script.js`, abstracts common map settings, and `tweetRace.js` is the library we put together to take two terms and compare their results in Twitter searches.
 
 
 ### Map configuration
