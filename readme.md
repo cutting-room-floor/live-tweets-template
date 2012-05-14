@@ -41,6 +41,7 @@ All of the external javascript libraries to make the map interactive and connect
 
 An internal javascript library, `script.js`, abstracts common map settings, and `tweetRace.js` is the library we put together to take two terms and compare their results in Twitter searches.
 
+We're also using [jQuery](http://jquery.com/) for DOM manipulation and handling events, and [Underscore.js](http://documentcloud.github.com/underscore/) for data processing.
 
 ### Map configuration
 
@@ -126,3 +127,4 @@ The internals of `tweetRace.js` mostly deal with parsing the Twitter API to filt
 * [MapBox Easey](http://mapbox.com/easey/)
 * [Modest Maps](http://modestmaps.com/)
 * [jQuery](http://jquery.com/)
+* [Underscore.js](http://documentcloud.github.com/underscore/)
