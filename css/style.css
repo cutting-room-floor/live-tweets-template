@@ -229,6 +229,7 @@ a.zoomer {
     top: -7.5px;
     z-index: 3;
     position: relative;
+    cursor: pointer;
     }
 .mmg-first { background: url(../img/work.png) no-repeat left bottom; }
 .mmg-second { background: url(../img/play.png) no-repeat left bottom; }
@@ -248,13 +249,6 @@ a.zoomer {
     padding-bottom: 30px;
     border: none;
     z-index: 2;
-    }
-.mmg .overlay, .mmg .arrow-down {
-    -moz-transition: opacity .1s; 
-    -webkit-transition: opacity .1s;  
-    -ms-transition: opacity .1s;  
-    -o-transition: opacity .1s;  
-    transition: opacity .1s;  
     }
 .mmg .user, .mmg .time {
     color: #333;
@@ -276,10 +270,13 @@ a.zoomer {
     z-index: 10;
     }
 .mmg .arrow-down {
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
+    width:10px;
+    height: 10px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
     position: absolute;
     bottom: 20px;
     left: 2.5px;
@@ -287,9 +284,9 @@ a.zoomer {
     visibility: hidden;
     z-index: 1;
     }
-.mmg-first .arrow-down { border-top: 5px solid #d97e51; }
+.mmg-first .arrow-down { background: rgba(217,126,81,1); }
 .mmg-first .overlay { background: #d97e51; }
-.mmg-second .arrow-down { border-top: 5px solid #5dbfe1; }
+.mmg-second .arrow-down { background: rgba(93,191,225,1); }
 .mmg-second .overlay { background: #5dbfe1; }
 
 /* embed */
