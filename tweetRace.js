@@ -129,6 +129,7 @@ tweetRace.map = function() {
     
     if (tweetRace._map.tweetLayer) {
         features = features.concat(tweetRace._map.tweetLayer.features());
+        tweetRace._map.tweetLayer.features(features);
     } else {
         tweetRace._map.tweetLayer = mapbox.markers.layer().factory(function(x) {
             var d = document.createElement('div'),
