@@ -6,11 +6,13 @@
     <link rel="stylesheet" href="http://api.tiles.mapbox.com/mapbox.js/v0.6.3/mapbox.css" type="text/css" />
     <link rel="stylesheet" href="fonts/fonts.css" type="text/css" />
     <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <link rel="stylesheet" href="css/mapbox.share.css" type="text/css" />
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
 
     <script src='http://api.tiles.mapbox.com/mapbox.js/v0.6.3/mapbox.uncompressed.js'></script>
     <script src="ext/jquery.min.js"></script>
     <script src="ext/underscore.min.js"></script>
+    <script src="ext/mapbox.share.js"></script>
     <script src="tweetRace.js"></script>
 </head>
 <body>
@@ -58,6 +60,9 @@
 
             map.setZoomRange(2, 15);
             tweetRace.start(map);
+
+            // Add share control
+            mapbox.share().map(map).add();
         });
         
     </script>
