@@ -3,10 +3,17 @@
 <head>
     <meta charset="UTF-8" />
     <title>Twitter Showdown</title>
+    <link rel="stylesheet" href="http://api.tiles.mapbox.com/mapbox.js/v0.6.3/mapbox.css" type="text/css" />
     <link rel="stylesheet" href="fonts/fonts.css" type="text/css" />
-    <link rel="stylesheet" href="css/map.css" type="text/css" />
     <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <link rel="stylesheet" href="css/mapbox.share.css" type="text/css" />
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+
+    <script src='http://api.tiles.mapbox.com/mapbox.js/v0.6.3/mapbox.uncompressed.js'></script>
+    <script src="ext/jquery.min.js"></script>
+    <script src="ext/underscore.min.js"></script>
+    <script src="ext/mapbox.share.js"></script>
+    <script src="tweetRace.js"></script>
 </head>
 <body>
 
@@ -34,16 +41,6 @@
 
     <div id="map" class="map"></div>
         
-    <!-- External libraries and site script -->
-    <script src="ext/jquery.min.js"></script>
-    <script src="ext/underscore.min.js"></script>
-    <script src="ext/modestmaps.min.js"></script>
-    <script src="ext/wax/wax.mm.js"></script>
-    <script src="ext/wax/wax.ext.js"></script>
-    <script src="ext/easey.js"></script>
-    <script src="ext/mmg.js"></script>
-    <script src="tweetRace.js"></script>
-    <script src="script.js"></script>
     
     <!-- Site configuration -->
     <script type="text/javascript">
@@ -55,23 +52,18 @@
             '39,-98,1500mi'     // search location and radius (lat,lon,radius)
         ];
 
-        // Make a new map in the #map element
-        var main = Map('map', {
-            // Specify the MapBox API url
-            api: 'http://a.tiles.mapbox.com/v3/examples.map-dg7cqh4z.jsonp',
-            center: {
-                lat: 40,        // Intial center point and zoom level.
-                lon: -80,       // To find coordinates and zoom levels, 
-                zoom: 4         // try: http://www.getlatlon.com
-            },
-            zoomRange: [2, 15], // Limit zooming on the map to these levels
-            features: [         // Map features (see readme.md)
-                'zoomwheel',
-                'zoombox',
-                'zoompan',
-                'share'
-            ]
-        }, tweetRace.start);  // Callback function to start when map is loaded
+        mapbox.auto('map', 'examples.map-dg7cqh4z', function(map, tiledata) {
+            map.centerzoom({
+                lat: 40,
+                lon: -80
+            }, 4);
+
+            map.setZoomRange(2, 15);
+            tweetRace.start(map);
+
+            // Add share control
+            mapbox.share().map(map).add();
+        });
         
     </script>
 </body>

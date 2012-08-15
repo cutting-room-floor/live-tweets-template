@@ -5,7 +5,8 @@ var tweetRace = {};
 tweetRace.tweets = [];
 
 // Start the race with settings from tweets[]
-tweetRace.start = _.throttle(function(){
+tweetRace.start = _.throttle(function(map){
+    if (map) tweetRace._map = map;
     $('th.first').text(tweets[0] + ' tweets');
     $('th.second').text(tweets[1] + ' tweets');
     tweetRace.getTweets(tweets[0] + ' OR ' + tweets[1], tweets[2]);
@@ -106,12 +107,10 @@ tweetRace.counters = function() {
 
 // Map the tweets
 tweetRace.map = function() {
-    var points = { 'type': 'FeatureCollection',
-        'features': []
-    };
+    var features = [];
 
     _.each(_.rest(tweetRace.tweets, tweetRace.last || 0), function(tweet) {
-        points.features.push({
+        features.push({
             type: 'Feature',
             geometry: { 
                 type: 'Point',
@@ -128,10 +127,11 @@ tweetRace.map = function() {
     
     tweetRace.last = tweetRace.tweets.length;
     
-    if (MM_map.tweetLayer) {
-        MM_map.tweetLayer.geojson(points);
+    if (tweetRace._map.tweetLayer) {
+        features = features.concat(tweetRace._map.tweetLayer.features());
+        tweetRace._map.tweetLayer.features(features);
     } else {
-        MM_map.tweetLayer = mmg().factory(function(x) {
+        tweetRace._map.tweetLayer = mapbox.markers.layer().factory(function(x) {
             var d = document.createElement('div'),
                 overlay = document.createElement('div'),
                 arrow = document.createElement('div'),
@@ -152,12 +152,12 @@ tweetRace.map = function() {
             d.appendChild(arrow);
             
             return d;
-        }).geojson(points);
-        MM_map.addLayer(MM_map.tweetLayer);
+        }).features(features);
+        tweetRace._map.addLayer(tweetRace._map.tweetLayer);
     }
-    MM_map.setCenter({
-        lat: MM_map.getCenter().lat, 
-        lon: MM_map.getCenter().lon
+    tweetRace._map.setCenter({
+        lat: tweetRace._map.getCenter().lat,
+        lon: tweetRace._map.getCenter().lon
     });
 
     tweetRace.counters();

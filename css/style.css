@@ -228,7 +228,7 @@ a.zoomer {
     left: -7.5px;
     top: -7.5px;
     z-index: 3;
-    position: relative;
+    position: absolute;
     cursor: pointer;
     }
 .mmg-first { background: url(../img/work.png) no-repeat left bottom; }
