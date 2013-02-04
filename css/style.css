@@ -230,6 +230,7 @@ a.zoomer {
     z-index: 3;
     position: absolute;
     cursor: pointer;
+    pointer-events: all;
     }
 .mmg-first { background: url(../img/work.png) no-repeat left bottom; }
 .mmg-second { background: url(../img/play.png) no-repeat left bottom; }
