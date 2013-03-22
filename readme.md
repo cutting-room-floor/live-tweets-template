@@ -84,7 +84,7 @@ To link to a geographic location add at least one of the following data attribut
 - `data-zoom`: The zoom level.
 
 ```html
-<a data-lat="39" data-lon"77" data-zoom="10" href="#">
+<a data-lat="39" data-lon="77" data-zoom="10" href="#">
 ```
 
 If you specify any of these, the link will be automatically bound to the map.
